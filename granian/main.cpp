@@ -4,15 +4,19 @@
 
 int main()
 {
- 
     sf::RenderWindow window(sf::VideoMode(screenX, screenY), "granian");
     window.setFramerateLimit(60);
 
-    object obj1 = object(vector(20, 1.0), Vector2(0, screenY / 2), 70000000000000000);
-    obj1.getShape()->setFillColor(sf::Color::Green);
+    std::vector<object*> listOfObjects = {};
+
+    object *apple = new object(vector(20000, 2), Vector2(0, screenY / 2), 70000000000000000);
+    apple->getShape()->setFillColor(sf::Color::Red);
+    listOfObjects.push_back(apple);
     
-    object obj2 = object(vector(0, 0), Vector2(screenX / 2, screenY / 2), 5970000000000000000);
-    obj2.getShape()->setFillColor(sf::Color::Blue);
+
+    object *earth = new object(vector(0, 0), Vector2(screenX / 2, screenY / 2), 5970000000000000000);
+    earth->getShape()->setFillColor(sf::Color::Blue);
+    listOfObjects.push_back(earth);
 
     while (window.isOpen())
     {
@@ -23,11 +27,22 @@ int main()
                 window.close();
         }
 
-        obj1.update(obj2);
-       // obj2.update(obj1);
+        for (auto const obj : listOfObjects)
+        {
+            for (auto const objU : listOfObjects)
+            {
+                if (obj != objU)
+                {
+                    obj->update(objU);
+                }
+            }
+        }
+
         window.clear();
-        window.draw(*obj1.getShape());
-        window.draw(*obj2.getShape());
+        for (auto const obj : listOfObjects)
+        {
+            window.draw(*obj->getShape());
+        }
         window.display();
     }
 

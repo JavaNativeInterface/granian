@@ -4,9 +4,8 @@
 
 #define pi 3.1415
 
-class Vector2
+struct Vector2
 {
-public:
     double x, y;
     Vector2(double ax, double ay) : x(ax), y(ay) {}
 };
@@ -14,21 +13,12 @@ public:
 class vector {
 public:
     double magnitude;
-    double direction; // Angle in radians
+    double direction; // radians
 
     vector(double magnitude, double direction) : magnitude(magnitude), direction(direction) {}
     vector() : magnitude(0), direction(0) {}
 
 
-    // Get the magnitude of the vector
-    double getMagnitude() const {
-        return magnitude;
-    }
-
-    // Get the direction of the vector in radians
-    double getDirection() const {
-        return direction;
-    }
 
     // Vector addition
     vector operator+(const vector& other) const {
@@ -45,10 +35,5 @@ public:
         double directionResult = std::atan2f(yResult, xResult);
 
         return vector(magnitudeResult, directionResult);
-    }
-
-    // Print the vector
-    void print() const {
-        std::cout << "Magnitude: " << magnitude << ", Direction: " << direction << " radians" << std::endl;
     }
 };
