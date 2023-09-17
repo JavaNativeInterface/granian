@@ -2,6 +2,8 @@
 
 granian is a C++ application utilizing Newton's equation of motion to simulate gravitational forces on celestial bodies in two-dimensional space
 
+<b> /!\ you need to setup SFML /!\\</b>
+
 for example this is a planet 10 times smaller than the earth orbiting it :
 ```cpp
 object *planet = new object(vector(20000, 2), Vector2(0, screenY / 2), 70000000000000000);
