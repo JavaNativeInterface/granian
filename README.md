@@ -18,7 +18,7 @@ listOfObjects.push_back(earth);
 <img src="https://cdn.discordapp.com/attachments/939310069789630524/1153101142100815933/granian_QSMoW5AEDy.gif" alt="example">
 
 
-with this code with can simulate the fall of an apple on earth
+with this code we can simulate the fall of an apple on earth
 ```cpp
 object *apple = new object(vector(0, 0), Vector2(screenX / 2, screenY / 2), 0.00000102);
 apple->getShape()->setFillColor(sf::Color::Red);
